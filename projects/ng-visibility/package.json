@@ -1,5 +1,5 @@
 {
-  "name": "ng-visibility",
+  "name": "@stackapp/ng-visibility",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^13.0.0",
@@ -7,5 +7,22 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilya2204/ng-visibility.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilya2204/ng-visibility/issues"
+  },
+  "homepage": "https://github.com/ilya2204/ng-visibility#readme",
+  "keywords": [
+    "angular",
+    "visibility",
+    "directive"
+  ]
 }

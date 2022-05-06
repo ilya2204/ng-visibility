@@ -57,7 +57,7 @@ export class VisibilityObserverService {
   }
 
   // threshold=1 may cause unexpected behavior,
-  // so you need to translate it into 99
+  // so you need to translate it into 0.99
   private static transformThreshold(threshold: ExternalThreshold): InnerThreshold {
     if (threshold == 0) {
       return InnerThreshold.any;

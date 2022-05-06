@@ -27,5 +27,4 @@ export class NgBecameVisibleDirective implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.visibilityObserverService.unobserve(this.elementRef.nativeElement);
   }
-
 }
