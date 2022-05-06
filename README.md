@@ -28,7 +28,7 @@ npm install @stackapp/ng-visibility
 ### ngVisibility
 
 Add a directive to your component template and handle the `(visibleChange)` event:
-```angular2html
+```html
 <img ngVisibility (visibleChange)="imageVisibleChange($event)" [threshold]="0">
 ```
 and a method to your component typescript:
@@ -46,7 +46,7 @@ imports: [
 ```
 ### ngBecameVisible
 Add a directive to your component template and handle the `(becameVisible)` event:
-```angular2html
+```html
 <img ngBecameVisible (becameVisible)="imageBecameVisible()" [threshold]="1">
 ```
 and a method to your component typescript:
