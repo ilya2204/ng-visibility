@@ -13,13 +13,13 @@ type ExternalThreshold = 0 | 1;
 export class VisibilityObserverService {
 
   private observer: IntersectionObserver;
-  private items: WeakMap<HTMLElement, Subject<boolean>> = new WeakMap();
-  private itemsThreshold: WeakMap<HTMLElement, InnerThreshold> = new WeakMap();
+  private items: WeakMap<Element, Subject<boolean>> = new WeakMap();
+  private itemsThreshold: WeakMap<Element, InnerThreshold> = new WeakMap();
 
   constructor() {
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        const target = entry.target as HTMLElement;
+        const target = entry.target;
         const subject = this.items.get(target);
         const threshold = this.itemsThreshold.get(target);
         if (subject === undefined || threshold === undefined) {
@@ -38,7 +38,7 @@ export class VisibilityObserverService {
     }, {threshold: [InnerThreshold.any, InnerThreshold.full]});
   }
 
-  observe(target: HTMLElement, threshold: ExternalThreshold = 0): Observable<boolean> {
+  observe(target: Element, threshold: ExternalThreshold = 0): Observable<boolean> {
     const subject = new Subject<boolean>();
     const innerThreshold = VisibilityObserverService.transformThreshold(threshold);
     this.items.set(target, subject);
@@ -49,7 +49,7 @@ export class VisibilityObserverService {
     );
   }
 
-  unobserve(target: HTMLElement) {
+  unobserve(target: Element): void {
     this.items.get(target)?.complete();
     this.items.delete(target);
     this.itemsThreshold.delete(target);
