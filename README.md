@@ -31,7 +31,7 @@ Add a directive to your component template and handle the `(visibleChange)` even
 ```html
 <img ngVisibility (visibleChange)="imageVisibleChange($event)" [threshold]="0">
 ```
-and a method to your component typescript:
+and add a method to your component typescript:
 ```typescript
 imageVisibleChange(event: {isVisible: boolean}): void {
   // some logic
@@ -49,7 +49,7 @@ Add a directive to your component template and handle the `(becameVisible)` even
 ```html
 <img ngBecameVisible (becameVisible)="imageBecameVisible()" [threshold]="1">
 ```
-and a method to your component typescript:
+and add a method to your component typescript:
 ```typescript
 imageBecameVisible(): void {
   // some logic
