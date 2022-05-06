@@ -15,7 +15,7 @@ You can also pass `threshold` input to set the visibility threshold:
 Default value is `0`.
 
 ### ngBecameVisible
-`ngBecameVisible` allows you to know when an element becomes visible. The event is triggered only once and the element visibility tracking stops.
+`ngBecameVisible` allows you to know when an element became visible. The event is triggered only once and the element visibility tracking stops.
 
 `threshold` input is the same as `ngVisibility`.
 ## Install
