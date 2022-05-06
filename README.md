@@ -1,27 +1,57 @@
 # NgVisibility
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+Directives that allow you to get information about the visibility of an element on the screen.
 
-## Development server
+## Description
+### ngVisibility
+`ngVisibility` allows you to know about every change in element visibility.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You can also pass `threshold` input to set the visibility threshold:
 
-## Code scaffolding
+`0` - the element is visible if at least part of it is on the screen
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`1` - the element is visible if it is completely on the screen (note that elements that are larger than the screen will never become visible)
 
-## Build
+Default value is `0`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### ngBecameVisible
+`ngBecameVisible` allows you to know when an element becomes visible. The event is triggered only once and the element visibility tracking stops.
 
-## Running unit tests
+`threshold` input is the same as `ngVisibility`.
+## Install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm install @stackapp/ng-visibility
+```
 
-## Running end-to-end tests
+## Usage
+### ngVisibility
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Add a directive to your component template and handle the `(visibleChange)` event:
+```angular2html
+<img ngVisibility (visibleChange)="imageVisibleChange($event)" [threshold]="0">
+```
+and a method to your component typescript:
+```typescript
+imageVisibleChange(event: {isVisible: boolean}): void {
+  // some logic
+}
+```
+you also need to add `NgVisibilityModule` to your module imports:
+```typescript
+imports: [
+  ...,
+  NgVisibilityModule,
+]
+```
+### ngBecameVisible
+Add a directive to your component template and handle the `(becameVisible)` event:
+```angular2html
+<img ngBecameVisible (becameVisible)="imageBecameVisible()" [threshold]="1">
+```
+and a method to your component typescript:
+```typescript
+imageBecameVisible(): void {
+  // some logic
+}
+```
